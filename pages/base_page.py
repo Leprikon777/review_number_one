@@ -82,7 +82,6 @@ class BasePage():
 			
     def go_to_basket(self):
         link = None
-        print(*BasePageLocators.BASKET_LINK)
         try:
             link = self.get_element(*BasePageLocators.BASKET_LINK)
             link.click()
