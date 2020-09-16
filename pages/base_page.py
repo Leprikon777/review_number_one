@@ -21,7 +21,7 @@ class BasePage():
 		
     def is_element_present(self, how, what):
         try:
-            self.browser.find_element(how, what)
+            self.get_element(how, what)
         except (NoSuchElementException):
             return False
         return True
@@ -47,8 +47,11 @@ class BasePage():
     def is_equals(self, one, two):
         return one == two
 		
+    def get_element(self, how, what):
+        return self.browser.find_element(how, what)
+		
     def get_text_of_element(self, how, what):
-        return self.browser.find_element(how, what).text
+        return self.get_element(how, what).text
         
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
@@ -67,7 +70,7 @@ class BasePage():
     def go_to_login_page(self):
         link = None
         try:
-            link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+            link = self.get_element(*BasePageLocators.LOGIN_LINK)
             link.click()
         except NoSuchElementException:
             pass
@@ -81,7 +84,7 @@ class BasePage():
         link = None
         print(*BasePageLocators.BASKET_LINK)
         try:
-            link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+            link = self.get_element(*BasePageLocators.BASKET_LINK)
             link.click()
         except NoSuchElementException:
             pass
