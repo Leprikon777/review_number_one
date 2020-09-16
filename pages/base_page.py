@@ -6,6 +6,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from .locators import BasePageLocators
+
 import math
 
 class BasePage():
@@ -61,3 +63,18 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+			
+    def go_to_login_page(self):
+        link = None
+        try:
+            link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+            link.click()
+        except NoSuchElementException:
+            pass
+			
+        assert link, "Login link is not presented"
+			
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+			
+			
