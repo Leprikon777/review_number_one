@@ -16,7 +16,7 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.ADDED_PRODUCT_MESSAGE), "Message about added product is not presented"
 
     def should_be_message_about_price_basket(self):
-        assert self.is_element_present(*ProductPageLocators.BAsKET_PRICE_MESSAGE), "Message about price of the basket is not presented"
+        assert self.is_element_present(*ProductPageLocators.BASKET_PRICE_MESSAGE), "Message about price of the basket is not presented"
 
     def should_be_message_about_current_product(self):
         message = self.get_text_of_element(*ProductPageLocators.ADDED_PRODUCT_MESSAGE)
