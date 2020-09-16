@@ -21,7 +21,7 @@ class ProductPage(BasePage):
     def should_be_message_about_current_product(self):
         message = self.get_text_of_element(*ProductPageLocators.ADDED_PRODUCT_MESSAGE)
         product_name = self.get_text_of_element(*ProductPageLocators.PRODUCT_NAME)
-        assert self.is_main_message_contains_sub(message, product_name), "The name of the product in the message doesn't match the product that was added"
+        assert self.is_equals(message, product_name), "The name of the product in the message doesn't match the product that was added"
 		
     def should_be_price_basket_equals_current_product(self):
         bucket_price = self.get_text_of_element(*ProductPageLocators.BASKET_PRICE_MESSAGE)

@@ -21,6 +21,9 @@ class BasePage():
     def is_main_message_contains_sub(self, main, sub):
         return sub in main
 		
+    def is_equals(self, one, two):
+        return one == two
+		
     def get_text_of_element(self, how, what):
         return self.browser.find_element(how, what).text
         
